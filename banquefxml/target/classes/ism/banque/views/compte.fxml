@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="892.0" style="-fx-background-color: white;" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ism.banque.controllers.CompteController">
+   <children>
+      <Pane layoutX="57.0" layoutY="54.0" prefHeight="303.0" prefWidth="326.0" style="-fx-background-color: whitesmoke;">
+         <children>
+            <Text layoutX="28.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telephone" wrappingWidth="91.21630859375">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtTel" layoutX="29.0" layoutY="34.0" prefHeight="27.0" prefWidth="198.0" />
+            <Button fx:id="btnSearch" layoutX="257.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleRechercheClient" text="OK" />
+            <Pane fx:id="pnlClient" layoutX="17.0" layoutY="84.0" prefHeight="201.0" prefWidth="287.0">
+               <children>
+                  <Text layoutX="14.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom et Prenom" wrappingWidth="172.21630859375">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="txtNomPrenom" layoutX="16.0" layoutY="33.0" prefHeight="27.0" prefWidth="262.0" />
+                  <Text layoutX="20.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" wrappingWidth="91.21630859375">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="txtLogin" layoutX="18.0" layoutY="103.0" prefHeight="27.0" prefWidth="262.0" />
+                  <Text layoutX="17.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="91.21630859375">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <PasswordField fx:id="txtPassword" layoutX="20.0" layoutY="164.0" prefHeight="27.0" prefWidth="262.0" />
+               </children>
+            </Pane>
+            <Text fx:id="lblErrorTel" fill="#f80707" layoutX="29.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="veuiilez saisir 9 chiffres" />
+         </children></Pane>
+      <Pane layoutX="411.0" layoutY="54.0" prefHeight="303.0" prefWidth="431.0" style="-fx-background-color: whitesmoke;">
+         <children>
+            <Text layoutX="7.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des Comptes" wrappingWidth="225.21630859375">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <TableView fx:id="tblvCompte" layoutX="16.0" layoutY="43.0" prefHeight="235.0" prefWidth="385.0">
+              <columns>
+                <TableColumn fx:id="tblcNumero" prefWidth="109.0" text="Numero" />
+                <TableColumn fx:id="tblcType" prefWidth="88.0" text="Type" />
+                  <TableColumn fx:id="tblcSolde" prefWidth="184.0" text="Solde" />
+              </columns>
+            </TableView>
+         </children></Pane>
+      <Pane layoutX="57.0" layoutY="382.0" prefHeight="235.0" prefWidth="783.0" style="-fx-background-color: whitesmoke;">
+         <children>
+            <Text layoutX="28.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Solde" wrappingWidth="91.21630859375">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtSolde" layoutX="20.0" layoutY="169.0" prefHeight="27.0" prefWidth="270.0" />
+            <Text layoutX="365.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Taux" wrappingWidth="91.21630859375">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtTaux" layoutX="445.0" layoutY="50.0" prefHeight="27.0" prefWidth="225.0" />
+            <Text layoutX="365.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Frais" wrappingWidth="91.21630859375">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtFrais" disable="true" layoutX="445.0" layoutY="96.0" prefHeight="27.0" prefWidth="225.0" />
+            <Button layoutX="448.0" layoutY="167.0" mnemonicParsing="false" onAction="#handleCreerCompte" prefHeight="34.0" prefWidth="234.0" text="Creer un Compte" />
+            <Text layoutX="28.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type de Compte" wrappingWidth="172.2162961959839">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <RadioButton fx:id="radEpargne" layoutX="47.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleActiveTypeCompte" selected="true" text="Epargne">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="radType" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radCheque" layoutX="47.0" layoutY="92.0" mnemonicParsing="false" onAction="#handleActiveTypeCompte" text="Cheque" toggleGroup="$radType">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </RadioButton>
+         </children></Pane>
+   </children>
+</AnchorPane>

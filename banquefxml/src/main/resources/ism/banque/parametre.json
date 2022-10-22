@@ -1,0 +1,11 @@
+{
+    "sequence":{
+        "agence":1,
+        "compte":1
+    },
+    "prefix":{
+        "agence":"AG_",
+        "compte":"NUM_"
+    }
+ }
+ 
